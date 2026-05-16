@@ -21,10 +21,10 @@ const Hero = () => {
     >
       {/* Large typographic background */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-[0.03] pointer-events-none select-none"
+        className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-[0.08] pointer-events-none select-none"
         style={{ y }}
       >
-        <span className="text-[30vw] font-bold text-white whitespace-nowrap">
+        <span className="text-[28vw] font-bold text-white whitespace-nowrap tracking-tighter">
           PLONKIN
         </span>
       </motion.div>

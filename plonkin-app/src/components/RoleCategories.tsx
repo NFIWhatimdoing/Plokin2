@@ -21,7 +21,7 @@ const RoleCategories = () => {
     <section className="py-32 bg-ink relative overflow-hidden">
       {/* Large background text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
-        <span className="text-[20vw] font-bold text-white/[0.02] whitespace-nowrap">
+        <span className="text-[20vw] font-bold text-white/[0.06] whitespace-nowrap">
           ROLES
         </span>
       </div>
@@ -58,7 +58,7 @@ const RoleCategories = () => {
                   <h3 className="text-xl font-bold text-white group-hover:text-terracotta transition-colors">{cat.name}</h3>
                 </div>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-white/10 group-hover:text-terracotta/40 transition-colors">{cat.count}</span>
+                  <span className="text-3xl font-bold text-white/25 group-hover:text-terracotta/40 transition-colors">{cat.count}</span>
                 </div>
               </div>
             </motion.div>
