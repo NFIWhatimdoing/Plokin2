@@ -3,9 +3,12 @@ import { ArrowRight, Zap } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bone">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bone"
+      aria-label="Hero section"
+    >
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -35,11 +38,13 @@ const Hero = () => {
           className="absolute top-20 right-[15%] w-24 h-24 border-4 border-terracotta/20 rounded-lg rotate-45"
           animate={{ rotate: [45, 90, 45], y: [0, -20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          style={{ willChange: 'transform' }}
         />
         <motion.div
           className="absolute bottom-32 left-[10%] w-16 h-16 bg-tobacco/15 rounded-full"
           animate={{ scale: [1, 1.3, 1], x: [0, 30, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          style={{ willChange: 'transform' }}
         />
       </div>
 
@@ -50,8 +55,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 text-terracotta rounded-full text-sm font-medium mb-8"
+          role="banner"
         >
-          <Zap className="w-4 h-4" />
+          <Zap className="w-4 h-4" aria-hidden="true" />
           Powered by Sau5
         </motion.div>
 
@@ -69,6 +75,7 @@ const Hero = () => {
               scale: [1, 1.05, 1],
             }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            style={{ willChange: 'transform' }}
           >
             Hours
           </motion.span>
@@ -95,21 +102,31 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          role="group"
+          aria-label="Call to action buttons"
         >
           <motion.a
             href="#signup"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-white rounded-full text-lg font-semibold hover:bg-terracotta-dark transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta text-white rounded-full text-lg font-semibold 
+                       hover:bg-terracotta-dark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 
+                       focus-visible:outline-terracotta-dark cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ willChange: 'transform' }}
+            aria-label="Start hiring now"
           >
             Start Hiring
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </motion.a>
           <motion.a
             href="#how-it-works"
-            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-ink text-ink rounded-full text-lg font-semibold hover:bg-ink hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-ink text-ink rounded-full text-lg font-semibold 
+                       hover:bg-ink hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 
+                       focus-visible:outline-ink cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ willChange: 'transform' }}
+            aria-label="Learn how Plonkin works"
           >
             See How It Works
           </motion.a>
@@ -121,6 +138,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
+          role="region"
+          aria-label="Key statistics"
         >
           {[
             { value: '48h', label: 'Avg. Time to Hire' },
@@ -133,6 +152,7 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1 + i * 0.1 }}
+              style={{ willChange: 'transform' }}
             >
               <div className="text-3xl md:text-4xl font-extrabold text-terracotta">{stat.value}</div>
               <div className="text-sm text-warm-gray mt-1">{stat.label}</div>
@@ -146,6 +166,7 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        aria-hidden="true"
       >
         <div className="w-6 h-10 border-2 border-ink/30 rounded-full flex justify-center pt-2">
           <motion.div
