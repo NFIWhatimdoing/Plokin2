@@ -42,10 +42,10 @@ const Hero = () => {
       />
 
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20"
         style={{ opacity, scale }}
       >
-        <div className="grid lg:grid-cols-12 gap-8 items-end min-h-[80dvh] pb-20">
+        <div className="grid lg:grid-cols-12 gap-8 items-end min-h-[75dvh] pb-20">
           {/* Left column */}
           <div className="lg:col-span-8">
             <motion.div

@@ -1,4 +1,5 @@
 import Hero from './components/Hero'
+import Navbar from './components/Navbar'
 import HowItWorks from './components/HowItWorks'
 import RoleCategories from './components/RoleCategories'
 import SocialProof from './components/SocialProof'
@@ -9,6 +10,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen bg-bone">
+      <Navbar />
       <Hero />
       <HowItWorks />
       <RoleCategories />
