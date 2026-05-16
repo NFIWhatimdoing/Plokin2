@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terracotta: #C8501E;
+  --color-terracotta-dark: #A84015;
+  --color-ink: #1A1A1A;
+  --color-bone: #F4EFE6;
+  --color-paper: #FFFFFF;
+  --color-tobacco: #8B6F47;
+  --color-tobacco-light: #A68B5F;
+  --color-warm-gray: #9A9590;
+  --font-heading: 'Syne', 'Space Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/syne/v22/8vIH7w4qzmVoxGmeM3xEt8J8yLnw.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXskPMBBSSJLm2E.ttf) format('truetype');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+::selection {
+  background-color: var(--color-terracotta);
+  color: white;
+}
