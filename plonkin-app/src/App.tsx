@@ -1,5 +1,4 @@
 import Hero from './components/Hero'
-import TrustBadges from './components/TrustBadges'
 import HowItWorks from './components/HowItWorks'
 import RoleCategories from './components/RoleCategories'
 import SocialProof from './components/SocialProof'
@@ -11,7 +10,6 @@ function App() {
   return (
     <div className="min-h-screen bg-bone">
       <Hero />
-      <TrustBadges />
       <HowItWorks />
       <RoleCategories />
       <SocialProof />

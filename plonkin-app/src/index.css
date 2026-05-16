@@ -2,33 +2,17 @@
 
 @theme {
   --color-terracotta: #C8501E;
-  --color-terracotta-dark: #A84015;
-  --color-terracotta-light: #E07040;
-  --color-ink: #1A1A1A;
-  --color-bone: #F4EFE6;
+  --color-terracotta-dark: #8B3A10;
+  --color-ink: #0A0A0A;
+  --color-bone: #FAF7F2;
   --color-paper: #FFFFFF;
-  --color-tobacco: #8B6F47;
-  --color-tobacco-light: #A68B5F;
-  --color-warm-gray: #9A9590;
-  --font-heading: 'Syne', 'Space Grotesk', sans-serif;
-  --font-body: 'Space Grotesk', 'Inter', sans-serif;
+  --color-warm-gray: #7A756E;
+  --color-cream: #F0E6D8;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/syne/v22/8vIH7w4qzmVoxGmeM3xEt8J8yLnw.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXskPMBBSSJLm2E.ttf) format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -47,7 +31,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 ::selection {
@@ -55,58 +40,43 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Focus visible styles for keyboard navigation */
+/* Focus visible */
 :focus-visible {
   outline: 2px solid var(--color-terracotta);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-/* Smooth transitions for all interactive elements */
 a, button {
   transition: all 200ms ease;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-terracotta);
-  outline-offset: 2px;
-}
-
-/* Cursor pointer on all clickable elements */
 a[href],
 button,
 [role="button"] {
   cursor: pointer;
 }
 
-/* Reduced motion support */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  :root {
-    --color-ink: #000000;
-    --color-bone: #FFFFFF;
-    --color-warm-gray: #333333;
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none !important;
-  }
+::-webkit-scrollbar-track {
+  background: var(--color-bone);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
 }

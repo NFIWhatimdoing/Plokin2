@@ -6,22 +6,22 @@ const features = [
   {
     icon: Globe,
     title: 'Global Reach',
-    description: 'Access workers in 35+ countries. Local talent, international coverage.',
+    description: '35+ countries. Local talent, international coverage.',
   },
   {
     icon: Shield,
-    title: 'Verified Workers',
-    description: 'Every worker is ID-verified, skill-tested, and rated by previous employers.',
+    title: 'Verified',
+    description: 'ID-checked, skill-tested, rated by employers.',
   },
   {
     icon: Clock,
-    title: 'Same-Day Start',
-    description: 'Post a shift in the morning, have someone on-site by afternoon.',
+    title: 'Same-Day',
+    description: 'Morning post, afternoon start. No waiting.',
   },
   {
     icon: CreditCard,
-    title: 'Secure Payments',
-    description: 'Escrow-protected payments. Release funds only when work is complete.',
+    title: 'Secure Pay',
+    description: 'Escrow-protected. Pay only when work\'s done.',
   },
 ];
 
@@ -30,43 +30,48 @@ const Features = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="py-24 bg-ink text-paper">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-32 bg-terracotta relative overflow-hidden">
+      {/* Large background text */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
+        <span className="text-[25vw] font-bold text-white/[0.05] whitespace-nowrap">
+          WHY
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Built for{' '}
-            <span className="text-terracotta">Speed
-</span>
-            {' '}& Trust
+          <span className="text-white/50 text-xs uppercase tracking-[0.2em]">Features</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] mt-4">
+            Built for
+            <br />
+            <span className="italic">speed.</span>
           </h2>
-          <p className="text-lg text-paper/60 max-w-xl mx-auto">
-            Enterprise-grade reliability with consumer-grade simplicity.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-px bg-white/10 rounded-2xl overflow-hidden">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-paper/5 backdrop-blur-sm rounded-2xl p-8 border border-paper/10 hover:border-terracotta/50 transition-colors duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+              className="bg-terracotta p-8 md:p-12 group cursor-pointer transition-colors"
             >
-              <div className="flex items-start gap-5">
-                <div className="bg-terracotta/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-6 h-6 text-terracotta" />
+              <div className="flex items-start gap-6">
+                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors"
+                >
+                  <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-paper/60 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/70 text-lg">{feature.description}</p>
                 </div>
               </div>
             </motion.div>

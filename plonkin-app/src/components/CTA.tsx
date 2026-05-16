@@ -7,78 +7,62 @@ const CTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="signup" className="py-24 bg-terracotta relative overflow-hidden">
-      {/* Animated background shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white/5"
-            style={{
-              width: `${300 + i * 100}px`,
-              height: `${300 + i * 100}px`,
-              left: `${-10 + i * 30}%`,
-              top: `${-20 + i * 20}%`,
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 20 + i * 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
+    <section id="signup" className="py-32 bg-ink relative overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
+        }}
+      />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-            Ready to{' '}
+          <motion.h2 
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.9] mb-8"
+          >
+            Ready to
+            <br />
             <motion.span
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="inline-block"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="text-terracotta italic inline-block"
             >
-              Plonkin
+              Plonkin?
             </motion.span>
-            ?
-          </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-xl mx-auto">
-            Join thousands of businesses hiring smarter, faster, and more flexibly.
+          </motion.h2>
+          
+          <p className="text-xl text-white/40 mb-12 max-w-md mx-auto">
+            Start hiring smarter, faster, and more flexibly.
           </p>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
               href="#"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-terracotta rounded-full text-lg font-bold hover:bg-bone transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-terracotta text-white text-lg font-bold hover:bg-terracotta-dark transition-colors group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               Start Hiring Free
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.a>
             <motion.a
               href="#"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-full text-lg font-bold hover:bg-white/10 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white text-lg font-bold hover:bg-white/5 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               I'm a Worker
             </motion.a>
-          </motion.div>
+          </div>
 
-          <p className="text-white/50 text-sm mt-6">
-            No credit card required. Free for first 3 shifts.
+          <p className="text-white/30 text-sm mt-8">
+            No credit card. First 3 shifts free.
           </p>
         </motion.div>
       </div>

@@ -1,28 +1,22 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, Calendar, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const steps = [
   {
-    icon: Search,
     number: '01',
-    title: 'Post a Shift',
-    description: 'Describe the role, location, and duration. Set your budget. Takes 2 minutes.',
-    color: 'bg-terracotta',
+    title: 'Post',
+    description: 'Describe the role, set dates, set budget. Two minutes tops.',
   },
   {
-    icon: Calendar,
     number: '02',
-    title: 'Match Instantly',
-    description: 'Our algorithm finds verified workers available for your dates. No waiting.',
-    color: 'bg-tobacco',
+    title: 'Match',
+    description: 'Verified workers see your shift instantly. No waiting lists.',
   },
   {
-    icon: CheckCircle,
     number: '03',
-    title: 'Work Done',
-    description: 'Worker shows up, job gets done, payment released. Simple as that.',
-    color: 'bg-ink',
+    title: 'Done',
+    description: 'They show up. Work gets done. Payment released automatically.',
   },
 ];
 
@@ -31,55 +25,59 @@ const HowItWorks = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="how-it-works" className="py-24 bg-paper">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="how-it-works" className="py-32 bg-bone relative">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-ink mb-4">
-            How It{' '}
-            <span className="text-terracotta">Works
-</span>
-          </h2>
-          <p className="text-lg text-warm-gray max-w-xl mx-auto">
-            Three simple steps to fill any short-term role.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <span className="text-warm-gray text-xs uppercase tracking-[0.2em]">How It Works</span>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-[0.9] mt-4">
+                Three steps.
+                <br />
+                <span className="text-terracotta italic">Zero bullshit.</span>
+              </h2>
+            </div>
+            <p className="text-warm-gray max-w-sm md:text-right">
+              No contracts. No middlemen. No waiting weeks for someone to maybe show up.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line */}
-          <div className="hidden md:block absolute top-24 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-terracotta/30 via-tobacco/30 to-ink/30">
-            <motion.div
-              className="h-full bg-terracotta"
-              initial={{ width: '0%' }}
-              animate={isInView ? { width: '100%' } : {}}
-              transition={{ duration: 2, delay: 0.5 }}
-            />
-          </div>
-
+        <div className="space-y-0">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 60 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2 + index * 0.2 }}
-              className="relative"
+              transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+              className="group border-t border-ink/10 py-12 md:py-16 cursor-pointer hover:bg-ink/[0.02] transition-colors"
             >
-              <div className="bg-bone rounded-2xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-ink/5">
-                {/* Step number */}
-                <div className={`${step.color} text-white w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6 text-lg font-bold relative z-10`}>
-                  <step.icon className="w-6 h-6" />
+              <div className="grid md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-1">
+                  <span className="text-5xl md:text-6xl font-bold text-ink/10 group-hover:text-terracotta/20 transition-colors">
+                    {step.number}
+                  </span>
                 </div>
-
-                <div className="text-5xl font-extrabold text-ink/10 mb-2">
-                  {step.number}
+                <div className="md:col-span-3">
+                  <h3 className="text-3xl md:text-4xl font-bold text-ink">{step.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-ink mb-3">{step.title}</h3>
-                <p className="text-warm-gray leading-relaxed">{step.description}</p>
+                <div className="md:col-span-6">
+                  <p className="text-warm-gray text-lg">{step.description}</p>
+                </div>
+                <div className="md:col-span-2 flex justify-end">
+                  <motion.div
+                    className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:border-terracotta group-hover:bg-terracotta transition-all"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <ArrowRight className="w-5 h-5 text-ink/30 group-hover:text-white transition-colors" />
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}
