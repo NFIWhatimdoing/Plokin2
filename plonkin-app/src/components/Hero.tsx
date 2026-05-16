@@ -19,20 +19,24 @@ const Hero = () => {
       className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-ink"
       aria-label="Hero section"
     >
-      {/* Large typographic background */}
+      {/* Background image - trades workers */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-[0.08] pointer-events-none select-none"
+        className="absolute inset-0 overflow-hidden"
         style={{ y }}
       >
-        <span className="text-[28vw] font-bold text-white whitespace-nowrap tracking-tighter">
-          PLONKIN
-        </span>
+        <img 
+          src="/images/trades-bg.png" 
+          alt=""
+          className="w-full h-full object-cover opacity-50 scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-ink/60" />
       </motion.div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.06]"
+      <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />

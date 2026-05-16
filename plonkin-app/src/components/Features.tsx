@@ -31,9 +31,20 @@ const Features = () => {
 
   return (
     <section className="py-32 bg-terracotta relative overflow-hidden">
+      {/* Background image - kitchen staff */}
+      <div className="absolute inset-0">
+        <img 
+          src="/images/kitchen-bg.png" 
+          alt=""
+          className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-terracotta/80 via-terracotta/60 to-terracotta" />
+        <div className="absolute inset-0 bg-gradient-to-r from-terracotta/90 via-transparent to-terracotta/70" />
+      </div>
+
       {/* Large background text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
-        <span className="text-[25vw] font-bold text-white/[0.05] whitespace-nowrap">
+        <span className="text-[25vw] font-bold text-white/[0.08] whitespace-nowrap">
           WHY
         </span>
       </div>
@@ -61,8 +72,8 @@ const Features = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-              className="bg-terracotta p-8 md:p-12 group cursor-pointer transition-colors"
+              whileHover={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
+              className="bg-black/10 backdrop-blur-sm p-8 md:p-12 group cursor-pointer transition-colors"
             >
               <div className="flex items-start gap-6">
                 <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors"
